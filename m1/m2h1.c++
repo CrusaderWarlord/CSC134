@@ -1,21 +1,16 @@
-// Get Variables
+// Declare variables
 
-double number_of_guests, number_of_slices_available, number_of_slices_needed, number_of_pizzas;
-double number_of_remaining_slices;
+double number_of_pizzas_ordered, number_of_guests, number_of_slices_needed;
+double number_of_slices_available, number_of_slices_remaining;
 
-// Do calculations
 
-number_of_slices_needed = number_of_guests * 3; 
-number_of_slices_available = number_of_pizzas / 8;
-number_of_remaining_slices = number_of_slices_available - number_of_slices_needed;
+//calculations
 
-//Get how many pizza slices are needed
+number_of_slices_available = number_of_pizzas_ordered % 8;
+number_of_slices_needed = number_of_guests * 3;
 
-cout << "how many guests do you have";
+cin >> number_of_pizzas_ordered endl;
+
+cout << "You have " << number_of_slices_available << " pizza slices" endl;
 cin >> number_of_guests;
-
-cout << "how many pizzas are you getting";
-cin >> number_of_pizzas;
-
-cout << "You will need " << number_of_slices_needed << " slices of pizza"
-cout << "You have " << number_of_slices_available << " slices of pizza"
+cout << "You will need " << number_of_slices_needed << "pizza slices." endl;
