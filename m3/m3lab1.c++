@@ -9,8 +9,8 @@ using namespace std;
 // rename these choices
 void do_choice_swim();
 void do_choice_tool();
-void do_choice_3();
-void do_choice_4();
+void do_choice_hunt();
+void do_choice_build();
 
 int main(){
 
