@@ -1,5 +1,8 @@
 // Declare variables
 
+#include <iostream>
+using namespace std;
+
 int number_of_pizzas_ordered(), number_of_guests(), number_of_slices_needed();
 int number_of_slices_available(), number_of_slices_remaining();
 
