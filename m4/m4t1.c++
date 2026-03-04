@@ -30,8 +30,6 @@ int main() {
     int squared;
     cout <<"Number\tNumber Squared\n";
     cout << "------------------" <<endl;
-   
-
     while (num <= MAX) {
         squared =num*num;
     cout << num << "\t" << squared << endl;
