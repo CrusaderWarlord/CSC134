@@ -16,7 +16,7 @@ int main()
           displaydata,
           area;      
           
-         
+         Void getLength()
      cin >> length ;
    
    cout << "Length = " << length << endl;
