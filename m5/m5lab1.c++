@@ -9,12 +9,19 @@ int main() {
     string peoples;
     string race;
     string character_class;
+    string native_language;
+    string element;
+    string circle;
+    string sex;
+    string color_one;
+    string color_two;
+    string color_three;
+    string color_four;
     int might;
     int toughness;
     int intellect;
     int perserverance;
     int dexterity;
-    int speed;
     int charisma;
 
     cout << "Who are you?" << endl;
@@ -45,7 +52,7 @@ int main() {
 
     }
     else{
-        peoples == "Humanoid";
+        peoples = "Humanoid";
     }
 
     if ("Human" == race){
@@ -53,45 +60,165 @@ int main() {
         intellect = 30;
         perserverance = 35;
         dexterity = 40;
-        speed = 45;
         toughness = 50; 
-        charisma = 35;
+        charisma = 45;
+        native_language = "Domain_Dependent";
     }
     else if ("Elf" == race){
          might = 30;
         intellect = 45;
         perserverance = 50;
-        dexterity = 45;
-        speed = 40;
+        dexterity = 50;
         toughness = 40; 
         charisma = 35;
+        native_language = "Romanian";
     }
      else if ("Dwarf" == race){
-         might = 45;
+        might = 45;
         intellect = 40;
         perserverance = 40;
         dexterity = 30;
-        speed = 35;
         toughness = 50; 
         charisma = 35;
+        native_language = "Snow_Dependent";
     }
      else if ("Ogre" == race){
-         might = 50;
+        might = 50;
         intellect = 35;
         perserverance = 40;
-        dexterity = 30;
-        speed = 40;
+        dexterity = 40;
         toughness = 45; 
-        charisma = 35;
+        charisma = 30;
     }
     else if ("Arachnian" == race){
-         might = 40;
+        might = 40;
         intellect = 35;
-        perserverance = 35;
+        perserverance = 45;
         dexterity = 50;
-        speed = 45;
         toughness = 40; 
         charisma = 30;
     }
+     else if ("Salamandrine" == race){
+        might = 45;
+        intellect = 40;
+        perserverance = 50;
+        dexterity = 35;
+        toughness = 30; 
+        charisma = 40;
+        native_language = "Spanish";
+    }
+     else if ("Raptorian" == race){
+        might = 40;
+        intellect = 40;
+        perserverance = 45;
+        dexterity = 50;
+        toughness = 35; 
+        charisma = 30;
+        native_language = "English";
+    }
+     else if ("Lizard Man" == race){
+        might = 40;
+        intellect = 35;
+        perserverance = 45;
+        dexterity = 50;
+        toughness = 40; 
+        charisma = 30;
+    }
+     else if ("Atheztug" == race){
+        might = 40;
+        intellect = 50;
+        perserverance = 45;
+        dexterity = 40;
+        toughness = 30; 
+        charisma = 35;
+        native_language = "Italian";
+    }
+     else if ("Daedron" == race){
+        might = 50;
+        intellect = 40;
+        perserverance = 35;
+        dexterity = 50;
+        toughness = 40; 
+        charisma = 30;
+        native_language = "Italian";
+    }
+     else if ("Draconian" == race){
+        might = 40;
+        intellect = 45;
+        perserverance = 35;
+        dexterity = 50;
+        toughness = 40; 
+        charisma = 30;
+        native_language = "Greek";
+    }
+     else{
+        race = "Human";
+        might = 40;
+        intellect = 30;
+        perserverance = 35;
+        dexterity = 40;
+        toughness = 50; 
+        charisma = 35;
+        native_language = "Domain_Dependent";
+    }    
+   
+
+    cout << "What do you look like" << endl;
+    if (race == "Atheztug") {
+        cout << "Which Element are you?" << endl;
+        cout << "" << endl;
+        cout << "The power of the earth" << endl;
+        cout << "The will of fire" << endl;
+        cout << "The freedom of air" << endl;
+        cout << "The elegance of water" << endl;
+        cin >> element;
+
+    }
+    else if (race == "Daedron") {
+        cout << "Where in the Abyss do you hail from?" << endl;
+        cout << "" << endl;
+        cout << "The " << endl;
+        cin >> circle;
+
+
+    }
+    else {
+        cout << "What gender are you?" << endl;
+        cin >> sex;
+        if (race == "Draconian"){
+            cout << "What Energy do you weild" << endl;
+            cin >> element;
+        }
+    }
+
+    cout << "I only possess the knowledge of your shape" << endl;
+    if (race == "Human"|| race == "Elf"|| race == "Dwarf") {
+        cin >> color_one;
+        cin >> color_two;
+        cin >> color_three;
+        cin >> color_four;
+
+
+    }
+    else if (race == "Ogre"){
+        cin >> color_one;
+        cin >> color_two;
+        cin >> color_three;
+        cin >> color_four;
+    }
+    else if (race == "Arachnian"){
+        cin >> color_one;
+        cin >> color_two;
+        cin  >> color_three;
+        cin >> color_four;
+
+    }
+    else if (race == "Salamandrine"){
+        
+
+    }
+
+
+
 }
 
