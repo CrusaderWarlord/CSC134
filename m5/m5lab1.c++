@@ -214,6 +214,8 @@ int main() {
 
     }
     else if (race == "Salamandrine"){
+        cin >> color_one;
+        cin >>color_two;
         
 
     }
@@ -221,4 +223,3 @@ int main() {
 
 
 }
-
