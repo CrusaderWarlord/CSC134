@@ -172,6 +172,18 @@ int main() {
         cout << "The freedom of air" << endl;
         cout << "The elegance of water" << endl;
         cin >> element;
+        if (element == "Earth"){
+            might = (might + 5);
+        }
+        else if (element == "Fire"){
+            perserverance = (perserverance + 5);
+        }
+        else if (element == "Air"){
+            dexterity = (dexterity + 5);
+        }
+        else if (element == "Water"){
+
+        }
 
     }
     else if (race == "Daedron") {
