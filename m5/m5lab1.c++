@@ -182,6 +182,7 @@ int main() {
             dexterity = (dexterity + 5);
         }
         else if (element == "Water"){
+            charisma = (charisma + 5);
 
         }
 
@@ -205,14 +206,43 @@ int main() {
 
     cout << "I only possess the knowledge of your shape" << endl;
     if (race == "Human"|| race == "Elf"|| race == "Dwarf") {
-        cin >> color_one;
+        cout <<"#f6e4bf"<< endl;
+        cout <<"#d6be8e"<< endl;
+        cout <<"#c2a770"<< endl;
+        cout <<"#ae935c"<< endl;
+        cout <<"#997e47"<< endl;
+        cout <<"#866b35"<< endl;
+        cout <<"#6f5622"<< endl;
+        cout <<"#553f13"<< endl;
+        cout <<"#412e09"<< endl;
+        cin  >> color_one;
+
+        cout <<"#0b840c"<< endl;
+        cout <<"#4a6969"<< endl;
+        cout <<"#3c7475"<< endl;
+        cout <<"#273a8b"<< endl;
+        cout <<"#2c5736"<< endl;
+        cout <<"#3f2a08"<< endl;
+        cout <<"#642f02"<< endl;
+        cout <<"#623a00"<< endl;
+        cout <<"#006226"<< endl;
         cin >> color_two;
+        cout <<
         cin >> color_three;
         cin >> color_four;
 
 
     }
     else if (race == "Ogre"){
+        cout << "#5f685d"<< endl;
+        cout << "#546252"<< endl;
+        cout << "#455949"<< endl;
+        cout << "#375040"<< endl;
+        cout << "#304a44"<< endl;
+        cout << "#304a44"<< endl;
+        cout << "#304343"<< endl;
+        cout << "#273838"<< endl;
+        cout << "#1c2d2d"<< endl;
         cin >> color_one;
         cin >> color_two;
         cin >> color_three;
@@ -230,6 +260,12 @@ int main() {
         cin >>color_two;
         
 
+    }
+    else if (race == "Raptorian"){
+        cin >> color_one;
+        cin >> color_two;
+        cin >> color_three;
+        cin >> color_four;
     }
 
 
