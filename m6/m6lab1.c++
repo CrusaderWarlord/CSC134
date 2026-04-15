@@ -36,6 +36,12 @@ int main() {
     }
     // list again post shot
     displayMagazine(magazine);
+    //Future Requirements
+    // TUrn based mechanis
+    // HP (slime deals 1 damage)
+    // Items maybe
+    //alternating rounds
+    // something else
 }
 
 // Full Functions go here
