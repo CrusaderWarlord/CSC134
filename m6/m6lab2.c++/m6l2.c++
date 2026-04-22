@@ -3,7 +3,7 @@
 using namespace std;
 
 // Constants for rooms and directions
-const int NUM_ROOMS = 5;
+const int NUM_ROOMS = 6;
 const int NUM_DIRECTIONS = 4;
 const int NO_CONNECTION = -1;
 
@@ -14,12 +14,13 @@ const int SOUTH = 2;
 const int WEST = 3;
 
 // Room indices
-const int CENTRAL_CAMP = 0;
-const int NORTH_SCOUT = 1;
-const int EAST_SUPPLY = 2;
-const int WEST_FORGE = 3;
-const int SOUTH_ENTRYWAY = 4;
-const int CEMETERY = 5;
+const int DESECRATED_ALTAR = 0;
+const int DEMON_GUARD_POST = 1;
+const int CURSED_LIBRARY = 2;
+const int TORTURE_CHAMBER = 3;
+const int RUINED_ENTRANCE = 4;
+const int FORGOTTEN_CRYPT = 5;
+const int ROOFTOP = 6;
 
 // Function declarations
 void printRoom(string roomNames[], string roomDescriptions[], int room);
@@ -46,19 +47,22 @@ int main()
 	// ----- Parallel arrays: both indexed by Room -----
 	// roomNames[CENTRAL_CAMP] and roomDescriptions[CENTRAL_CAMP] describe the same place.
 	string roomNames[NUM_ROOMS] = {
-		"Central Camp",
-		"North Scout Post",
-		"East Stables And Storage",
-		"West Blacksmith Forge",
-		"South Entryway"
+		"Desecrated Altar",
+		"Demon Guard Post",
+		"Cursed Library",
+		"Torture Chamber",
+		"Ruined Entrance",
+		"Forgotten Crypt"
+		"Rooftop"
 	};
 
 	string roomDescriptions[NUM_ROOMS] = {
-		"The heart of the orc camp. Tents circle a roaring bonfire. War banners snap in the wind, The leader and war room are beneath the well while the tower up noth decives potential enemies.",
-		"A lookout post facing north. Scouts sharpen axes on weathered stone. Smoke signals rise to the sky, the tower stands tall, enemies will think the leader is up there.",
-		"Stables for keeping mounts and supplies for raiding elven lands.",
-		"A forge bellows with heat and flame. Blacksmiths hammer weapons on anvils. Sparks fly like angry fireflies, Axe launchers are the main product of the forge.",
-		"The entrance to the orc camp. A wide path leads into the heart of the settlement."
+		"An altar defiled with dark magic. The air is thick with the stench of decay and the whispers of lost souls. Demonic symbols are etched into the stone, pulsing with an eerie glow.",
+		"Demonic sentinels patrol this post, their eyes burning with malevolent intent. The ground is scorched from their fiery breath, and the air is filled with the sound of their guttural growls.",
+		"Torture devices are strewn across this room, whatever has happened here is best left undisturbed.",
+		"The Enryway to the temple. The ground is littered with broken weapons and the remnants of past battles. The air is thick with tension, as if the very walls are watching and waiting for intruders.",
+		"A crypt long forgotten, its entrance hidden beneath layers of moss and vines. The air is cold and damp, and the silence is broken only by the distant echoes of dripping water. The walls are adorned with faded murals depicting ancient rituals and forgotten deities.",
+		"The roof of the temple, this is where you face the demon lord. The air is thick with the stench of sulfur and brimstone, and the ground is scorched from countless battles. The sky above is perpetually dark, with flashes of lightning illuminating the twisted spires of the temple. The demon lord's throne sits at the center, a grotesque monument to his power and cruelty."
 	};
 
 	// ----- The adjacency table (a 2D array) -----
@@ -74,24 +78,24 @@ int main()
 
 	// Step 2: Connect the rooms
 	// Central Camp connections
-	connections[CENTRAL_CAMP][NORTH] = NORTH_SCOUT;
-	connections[CENTRAL_CAMP][EAST] = EAST_SUPPLY;
-	connections[CENTRAL_CAMP][WEST] = WEST_FORGE;
-	connections[CENTRAL_CAMP][SOUTH] = SOUTH_ENTRYWAY;
+	connections[DESECRATED_ALTAR][NORTH] = DEMON_GUARD_POST;
+	connections[DESECRATED_ALTAR][EAST] = CURSED_LIBRARY;
+	connections[DESECRATED_ALTAR][WEST] = TORTURE_CHAMBER;
+	connections[DESECRATED_ALTAR][SOUTH] = RUINED_ENTRANCE;
 
 	// Outposts connect back to central camp
-	connections[NORTH_SCOUT][SOUTH] = CENTRAL_CAMP;
-	connections[EAST_SUPPLY][WEST] = CENTRAL_CAMP;
-	connections[WEST_FORGE][EAST] = CENTRAL_CAMP;
-	connections[SOUTH_ENTRYWAY][NORTH] = CENTRAL_CAMP;
-    connections[WEST_FORGE][NORTH] = CEMETERY;
-    connections[CEMETERY][SOUTH] = WEST_FORGE;
+	connections[DEMON_GUARD_POST][SOUTH] = DESECRATED_ALTAR;
+	connections[CURSED_LIBRARY][WEST] = DESECRATED_ALTAR;
+	connections[TORTURE_CHAMBER][EAST] = DESECRATED_ALTAR;
+	connections[RUINED_ENTRANCE][NORTH] = DESECRATED_ALTAR;
+    connections[FORGOTTEN_CRYPT][NORTH] = RUINED_ENTRANCE;
+    connections[RUINED_ENTRANCE][SOUTH] = FORGOTTEN_CRYPT;
 
 	// Step 3: Run the game loop
-	int currentRoom = CENTRAL_CAMP;
+	int currentRoom = DESECRATED_ALTAR; // Start in the central camp
 
-	cout << "\n=== Welcome to the Orc Camp ===" << endl;
-	cout << "You are an orc warrior. Explore the camp." << endl;
+	cout << "\n=== Welcome to the Desecrated Temple ===" << endl;
+	cout << "You are an adventurer. Explore the temple overrun by demons." << endl;
 	cout << "Commands: north, south, east, west (or n, s, e, w), look, quit\n" << endl;
 
 	while (true) {
@@ -130,7 +134,7 @@ int main()
 		}
 	}
 
-	cout << "\nYou leave the camp and fade into the wilderness. Farewell, warrior." << endl;
+	cout << "\nYou leave the temple, probably better off that way." << endl;
 	return 0;
 }
 
