@@ -3,8 +3,8 @@
 using namespace std;
 
 // Constants for rooms and directions
-const int NUM_ROOMS = 6;
-const int NUM_DIRECTIONS = 4;
+const int NUM_ROOMS = 8;
+const int NUM_DIRECTIONS = 6;
 const int NO_CONNECTION = -1;
 
 // Direction indices
@@ -12,6 +12,8 @@ const int NORTH = 0;
 const int EAST = 1;
 const int SOUTH = 2;
 const int WEST = 3;
+const int UP = 4;
+const int DOWN = 5;
 
 // Room indices
 const int DESECRATED_ALTAR = 0;
@@ -20,7 +22,8 @@ const int CURSED_LIBRARY = 2;
 const int TORTURE_CHAMBER = 3;
 const int RUINED_ENTRANCE = 4;
 const int FORGOTTEN_CRYPT = 5;
-const int ROOFTOP = 6;
+const int BELL_TOWER = 6;
+const int ROOFTOP = 7;
 
 // Function declarations
 void printRoom(string roomNames[], string roomDescriptions[], int room);
@@ -45,15 +48,17 @@ int commandToDirection(const string& command);
 int main()
 {
 	// ----- Parallel arrays: both indexed by Room -----
-	// roomNames[CENTRAL_CAMP] and roomDescriptions[CENTRAL_CAMP] describe the same place.
+	// roomNames[DESECRATED_ALTAR] and roomDescriptions[DESECRATED_ALTAR] describe the same place.
 	string roomNames[NUM_ROOMS] = {
 		"Desecrated Altar",
 		"Demon Guard Post",
 		"Cursed Library",
 		"Torture Chamber",
 		"Ruined Entrance",
-		"Forgotten Crypt"
+		"Forgotten Crypt",
+		"Bell Tower",
 		"Rooftop"
+		"Rooftop (Fighting the demon lord)"
 	};
 
 	string roomDescriptions[NUM_ROOMS] = {
@@ -62,7 +67,9 @@ int main()
 		"Torture devices are strewn across this room, whatever has happened here is best left undisturbed.",
 		"The Enryway to the temple. The ground is littered with broken weapons and the remnants of past battles. The air is thick with tension, as if the very walls are watching and waiting for intruders.",
 		"A crypt long forgotten, its entrance hidden beneath layers of moss and vines. The air is cold and damp, and the silence is broken only by the distant echoes of dripping water. The walls are adorned with faded murals depicting ancient rituals and forgotten deities.",
-		"The roof of the temple, this is where you face the demon lord. The air is thick with the stench of sulfur and brimstone, and the ground is scorched from countless battles. The sky above is perpetually dark, with flashes of lightning illuminating the twisted spires of the temple. The demon lord's throne sits at the center, a grotesque monument to his power and cruelty."
+		"The bell tower stands tall, its once majestic structure now crumbling and overgrown with vines. The bell itself is cracked and silent, but the air around it is charged with a sense of foreboding. The tower offers a vantage point to survey the surrounding area, but it also serves as a reminder of the temple's former glory and its current state of decay.",
+		"The roof of the temple, this is where you face the demon lord. The air is thick with the stench of sulfur and brimstone, and the ground is scorched from countless battles. The sky above is perpetually dark, with flashes of lightning illuminating the twisted spires of the temple. The demon lord's throne sits at the center, a grotesque monument to his power and cruelty.",
+		"You clash against the demon lord in a battle of wills and strength. The demon lord laughs and shifts into a giant form, The air crackles with dark energy as you exchange blows, each strike sending shockwaves through the rooftop. The demon lord's laughter echoes in your ears as he taunts you, but you stand firm, determined to defeat him and end his reign of terror once and for all."
 	};
 
 	// ----- The adjacency table (a 2D array) -----
@@ -90,13 +97,17 @@ int main()
 	connections[RUINED_ENTRANCE][NORTH] = DESECRATED_ALTAR;
     connections[FORGOTTEN_CRYPT][NORTH] = RUINED_ENTRANCE;
     connections[RUINED_ENTRANCE][SOUTH] = FORGOTTEN_CRYPT;
+	connections[DESECRATED_ALTAR][NORTH] = BELL_TOWER;
+	connections[BELL_TOWER][SOUTH] = DESECRATED_ALTAR;
+	connections[DESECRATED_ALTAR][UP] = ROOFTOP;
+	connections[ROOFTOP][DOWN] = DESECRATED_ALTAR;
 
 	// Step 3: Run the game loop
 	int currentRoom = DESECRATED_ALTAR; // Start in the central camp
 
 	cout << "\n=== Welcome to the Desecrated Temple ===" << endl;
 	cout << "You are an adventurer. Explore the temple overrun by demons." << endl;
-	cout << "Commands: north, south, east, west (or n, s, e, w), look, quit\n" << endl;
+	cout << "Commands: north, south, east, west, up, down, fight (or n, s, e, w, u, d), look, quit\n" << endl;
 
 	while (true) {
 		// Show current room info
@@ -114,6 +125,9 @@ int main()
 		else if (command == "look") {
 			// Just re-describe this room
 			cout << "\n" << roomDescriptions[currentRoom] << "\n" << endl;
+		}
+		else if (command == "fight") {
+			// Handle fighting logic
 		}
 		else {
 			// Try to move in a direction - one array lookup.
@@ -154,7 +168,7 @@ void printRoom(string roomNames[], string roomDescriptions[], int room)
 // The compiler needs to know how wide each row is to do the math.
 void printExits(int connections[][NUM_DIRECTIONS], int room)
 {
-	const string dirNames[NUM_DIRECTIONS] = { "north", "east", "south", "west" };
+	const string dirNames[NUM_DIRECTIONS] = { "north", "east", "south", "west", "up", "down" };
 	cout << "Exits: ";
 	bool any = false;
 	for (int d = 0; d < NUM_DIRECTIONS; d++) {
@@ -177,5 +191,7 @@ int commandToDirection(const string& command)
 	if (command == "east" || command == "e") return EAST;
 	if (command == "south" || command == "s") return SOUTH;
 	if (command == "west" || command == "w") return WEST;
+	if (command == "up" || command == "u") return UP;
+	if (command == "down" || command == "d") return DOWN;
 	return -1;
 }
