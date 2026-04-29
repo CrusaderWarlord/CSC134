@@ -1,0 +1,21 @@
+//
+//belmorea
+// 4/29/26
+//
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    string name = "Bob";
+    string *pName = &name;
+
+    cout << "name  =" << name << endl;
+    cout << "pName =" << pName << endl;
+    cout << "*pName=" << *pName << endl;
+
+    
+        return 0;
+}

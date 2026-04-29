@@ -227,7 +227,6 @@ int main() {
         cout <<"#623a00"<< endl;
         cout <<"#006226"<< endl;
         cin >> color_two;
-        cout <<
         cin >> color_three;
         cin >> color_four;
 
