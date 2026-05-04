@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-void setname(string &name)
+void setName(string &name);
 
 int main() {
 
@@ -21,11 +21,11 @@ int main() {
     cout << "*pName=" << *pName << endl;
 
 
-        return 0;
+    return 0;
 }
 
 void setName(string &name) {
-    
+
     cout << "What's your name?" << endl;
     cin >> name;
 }
