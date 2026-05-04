@@ -7,8 +7,8 @@ using namespace std;
 
 string language = "French";
 string pLanguage = language;
-string Name_spelt = "Croise";
-string Name_pronounced = "Croise"; //this one is written using the Cyrillic alphabet, hex codes are provided in outputs before you pronounce your name
+string Name_spelt = "Croisé"; //this one is written using the Latin alphabet, hex codes are provided in outputs before you pronounce your name
+string Name_pronounced = "Croisé"; //this one is written using the Cyrillic alphabet, hex codes are provided in outputs before you pronounce your name
 string pName_spelt = Name_spelt;
 string pName_Pronounced = Name_pronounced;
 string Race = "Human";
@@ -16,12 +16,12 @@ string pRace = Race;
 string Class = "Warrior";
 string pClass = Class;
 int main(){
-    cout << "Quel est votre langue, Croise?" <<endl;
+    cout << "Quel est votre langue, Croisé?" <<endl;
     cout << "French(1), English(2), Spanish(3), German(4), Italian(5), Bulgarian(6), Russian(7), Polish(8), Czech(9),Romanian(10)," << endl;
     cin >> language;
 
     if (language == "French"|| language == "Francais" || language == "Francés" || language == "Französisch" || language == "Francese" || language == "френски" || language == "Французский" || language == "Francuski"){
-        cout << "Bonjour, Croise" <<endl;
+        cout << "Bonjour, Croisé" <<endl;
     }
     else if (language == "English" || language == "Anglais" || language == "Inglés" || language == "Englisch" || language == "Inglese" || language == "английски"){
         cout << "Hello, Crusader" <<endl;
@@ -51,7 +51,8 @@ int main(){
         cout << "Salut, Cruciatul" <<endl;
     }
     else{
-        cout << "Désolé, Croise, je ne comprends pas cette langue." <<endl;
+        cout << "Désolé, Croisé, je ne comprends pas cette langue." <<endl;
+        language = "French";
     }
 
     if (language == "French"|| language == "Francais" || language == "Francés" || language == "Französisch" || language == "Francese" || language == "френски" || language == "Французский" || language == "Francuski"){
@@ -120,6 +121,10 @@ int main(){
     cin >> Name_spelt;
     cout << "Comment ton nom se prononcerait-il, Croisé ?" <<endl;
     cin >> Name_pronounced;
+
+    cout << "Qu'est-ce que tu es, Croisé?" <<endl;
+    cout << "Humanoids: Human(1), Elf(2),Dwarf(3), Ogre(4) << endl;
+    cout << "Bestials: Arachnian, Salamandrine, Lizard Man, Raptorian" <<endl;
     cin >> Race;
     cin >> Class;
 
