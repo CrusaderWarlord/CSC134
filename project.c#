@@ -6,7 +6,7 @@ using System;
 
 class Program
 {
-    private static string language = "French";
+    private static string language = "Francais";
     private static string pLanguage = language;
     private static string Name_spelt = "Croisé"; // this one is written using the Latin alphabet, hex codes are provided in outputs before you pronounce your name
     private static string Name_pronounced = "Croisé"; // this one is written using the Cyrillic alphabet, hex codes are provided in outputs before you pronounce your name
@@ -20,40 +20,52 @@ class Program
     static void Main()
     {
         Console.WriteLine("Quel est votre langue, Croisé?");
-        Console.WriteLine("Francais(1), English(2), Español(3), Deustch(4), Italiano(5), български(6), русский(7), Polski(8), Czech(9),Romanian(10),");
+        Console.WriteLine("Francais(1), English(2), Nederlands(3), Español(4), Deustch(5), Italiano(6), български(7), русский(8), Polski(9), Czech(10),Romanian(11),");
         language = ReadInput();
 
         if (IsLanguage("French", "Francais", "Francés", "Französisch", "Francese", "френски", "Французский", "Francuski"))
         {
             Console.WriteLine("Bonjour, Croisé");
+            language = Francais;
         }
         else if (IsLanguage("English", "Anglais", "Inglés", "Englisch", "Inglese", "английски","Angielski"))
         {
             Console.WriteLine("Hello, Crusader");
         }
+        else if ((IsLanguage("Dutch", "Néerlandais", "Nederlands", "Holandés", "Niederländisch", "Olandese", "холандски", "Голландский", "Holenderski", "holandský", "olandeză"))
+        {
+            Console.WrittenLine("Hallo,Kruisvaarder");
+            language = "Nederlands";
+        }
         else if (IsLanguage("Spanish", "Espagnol", "Español", "Spanisch", "Spagnolo", "испански", "Hiszpański"))
         {
             Console.WriteLine("Hola, Cruzado");
+            language = "Español";
         }
         else if (IsLanguage("German", "Allemand", "Alemán", "Deutsch", "Tedesco", "немски", "niemiecki"))
         {
             Console.WriteLine("Hallo, Kreuzritter");
+            language = "Deustch";
         }
         else if (IsLanguage("Italian", "Italien", "Italiano", "Italienisch", "итальянский"))
         {
             Console.WriteLine("Ciao, Crociato");
+            language = "Italiano";
         }
         else if (IsLanguage("Bulgarian", "Bulgare", "Búlgaro", "Bulgarisch", "Bulgaro", "български"))
         {
             Console.WriteLine("Здравей, Кръстоносец");
+            language = "български";
         }
         else if (IsLanguage("Russian", "Russe", "Ruso", "Russisch", "Russo", "русский"))
         {
             Console.WriteLine("Привет, Крестоносец");
+            language = "русский";
         }
-        else if (IsLanguage("Polish", "Polonais", "Polaco", "Polnisch", "Polacco", "польский"))
+        else if (IsLanguage("Polish", "Polonais", "Polaco", "Polnisch", "Polacco", "польский", "Polski"))
         {
             Console.WriteLine("Cześć, Krzyżowiec");
+            language = "Polski";
         }
         else if (IsLanguage("Czech", "Tchèque", "Checo", "Tschechisch", "Ceco", "чешский"))
         {
@@ -63,62 +75,62 @@ class Program
         {
             Console.WriteLine("Salut, Cruciatul");
         }
-        else
+        else //chinese and arabic are such languages that are not supported
         {
             Console.WriteLine("Désolé, Croisé, je ne comprends pas cette langue.");
-            language = "French";
+            language = "Francais";
         }
 
-        if (IsLanguage("French", "Francais", "Francés", "Französisch", "Francese", "френски", "Французский", "Francuski"))
+        if (IsLanguage("Francais"))
         {
             Console.WriteLine("Quel est votre nom, Croise?");
             Name_spelt = ReadInput();
             Console.WriteLine("Comment ton nom se prononcerait-il, Croisé ?");
             Name_pronounced = ReadInput();
         }
-        else if (IsLanguage("English", "Anglais", "Inglés", "Englisch", "Inglese", "английски"))
+        else if (IsLanguage("English"))
         {
             Console.WriteLine("What is your name, Crusader?");
             Name_spelt = ReadInput();
             Console.WriteLine("How would you pronounce your name, Crusader?");
             Name_pronounced = ReadInput();
         }
-        else if (IsLanguage("Spanish", "Espagnol", "Español", "Spanisch", "Spagnolo", "испански"))
+        else if (IsLanguage("Español"))
         {
             Console.WriteLine("¿Cuál es tu nombre, Cruzado?");
             Name_spelt = ReadInput();
             Console.WriteLine("¿Cómo pronunciarías tu nombre, Cruzado?");
             Name_pronounced = ReadInput();
         }
-        else if (IsLanguage("German", "Allemand", "Alemán", "Deutsch", "Tedesco", "немски"))
+        else if (IsLanguage("Deutsch"))
         {
             Console.WriteLine("Wie ist dein Name, Kreuzritter?");
             Name_spelt = ReadInput();
             Console.WriteLine("Wie würdest du deinen Namen aussprechen, Kreuzritter?");
             Name_pronounced = ReadInput();
         }
-        else if (IsLanguage("Italian", "Italien", "Italiano", "Italienisch", "итальянский"))
+        else if (IsLanguage("Italiano"))
         {
             Console.WriteLine("Qual è il tuo nome, Crociato?");
             Name_spelt = ReadInput();
             Console.WriteLine("Come pronunceresti il tuo nome, Crociato?");
             Name_pronounced = ReadInput();
         }
-        else if (IsLanguage("Bulgarian", "Bulgare", "Búlgaro", "Bulgarisch", "Bulgaro", "български"))
+        else if (IsLanguage("български"))
         {
             Console.WriteLine("Какво е твоето име, Кръстоносец?");
             Name_spelt = ReadInput();
             Console.WriteLine("Как бихте произнесли името си, Кръстоносец?");
             Name_pronounced = ReadInput();
         }
-        else if (IsLanguage("Russian", "Russe", "Ruso", "Russisch", "Russo", "русский"))
+        else if (IsLanguage("русский"))
         {
             Console.WriteLine("Как тебя зовут, Крестоносец?");
             Name_spelt = ReadInput();
             Console.WriteLine("Как бы вы произнесли свое имя, Крестоносец?");
             Name_pronounced = ReadInput();
         }
-        else if (IsLanguage("Polish", "Polonais", "Polaco", "Polnisch", "Polacco", "польский"))
+        else if (IsLanguage("Polski"))
         {
             Console.WriteLine("Jak masz na imię, Krzyżowiec?");
             Name_spelt = ReadInput();
