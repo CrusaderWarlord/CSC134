@@ -2,3 +2,305 @@
 // 5/13/26
 // Final Project (C# script)
 
+using System;
+
+class Program
+{
+    private static string language = "French";
+    private static string pLanguage = language;
+    private static string Name_spelt = "Croisé"; // this one is written using the Latin alphabet, hex codes are provided in outputs before you pronounce your name
+    private static string Name_pronounced = "Croisé"; // this one is written using the Cyrillic alphabet, hex codes are provided in outputs before you pronounce your name
+    private static string pName_spelt = Name_spelt;
+    private static string pName_Pronounced = Name_pronounced;
+    private static string Race = "Human";
+    private static string pRace = Race;
+    private static string Class = "Warrior";
+    private static string pClass = Class;
+
+    static void Main()
+    {
+        Console.WriteLine("Quel est votre langue, Croisé?");
+        Console.WriteLine("Francais(1), English(2), Español(3), Deustch(4), Italiano(5), български(6), русский(7), Polski(8), Czech(9),Romanian(10),");
+        language = ReadInput();
+
+        if (IsLanguage("French", "Francais", "Francés", "Französisch", "Francese", "френски", "Французский", "Francuski"))
+        {
+            Console.WriteLine("Bonjour, Croisé");
+        }
+        else if (IsLanguage("English", "Anglais", "Inglés", "Englisch", "Inglese", "английски","Angielski"))
+        {
+            Console.WriteLine("Hello, Crusader");
+        }
+        else if (IsLanguage("Spanish", "Espagnol", "Español", "Spanisch", "Spagnolo", "испански", "Hiszpański"))
+        {
+            Console.WriteLine("Hola, Cruzado");
+        }
+        else if (IsLanguage("German", "Allemand", "Alemán", "Deutsch", "Tedesco", "немски", "niemiecki"))
+        {
+            Console.WriteLine("Hallo, Kreuzritter");
+        }
+        else if (IsLanguage("Italian", "Italien", "Italiano", "Italienisch", "итальянский"))
+        {
+            Console.WriteLine("Ciao, Crociato");
+        }
+        else if (IsLanguage("Bulgarian", "Bulgare", "Búlgaro", "Bulgarisch", "Bulgaro", "български"))
+        {
+            Console.WriteLine("Здравей, Кръстоносец");
+        }
+        else if (IsLanguage("Russian", "Russe", "Ruso", "Russisch", "Russo", "русский"))
+        {
+            Console.WriteLine("Привет, Крестоносец");
+        }
+        else if (IsLanguage("Polish", "Polonais", "Polaco", "Polnisch", "Polacco", "польский"))
+        {
+            Console.WriteLine("Cześć, Krzyżowiec");
+        }
+        else if (IsLanguage("Czech", "Tchèque", "Checo", "Tschechisch", "Ceco", "чешский"))
+        {
+            Console.WriteLine("Ahoj, Křižák");
+        }
+        else if (IsLanguage("Romanian", "Roumain", "Rumano", "Rumänisch", "Rumeno", "румынский"))
+        {
+            Console.WriteLine("Salut, Cruciatul");
+        }
+        else
+        {
+            Console.WriteLine("Désolé, Croisé, je ne comprends pas cette langue.");
+            language = "French";
+        }
+
+        if (IsLanguage("French", "Francais", "Francés", "Französisch", "Francese", "френски", "Французский", "Francuski"))
+        {
+            Console.WriteLine("Quel est votre nom, Croise?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("Comment ton nom se prononcerait-il, Croisé ?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("English", "Anglais", "Inglés", "Englisch", "Inglese", "английски"))
+        {
+            Console.WriteLine("What is your name, Crusader?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("How would you pronounce your name, Crusader?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("Spanish", "Espagnol", "Español", "Spanisch", "Spagnolo", "испански"))
+        {
+            Console.WriteLine("¿Cuál es tu nombre, Cruzado?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("¿Cómo pronunciarías tu nombre, Cruzado?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("German", "Allemand", "Alemán", "Deutsch", "Tedesco", "немски"))
+        {
+            Console.WriteLine("Wie ist dein Name, Kreuzritter?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("Wie würdest du deinen Namen aussprechen, Kreuzritter?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("Italian", "Italien", "Italiano", "Italienisch", "итальянский"))
+        {
+            Console.WriteLine("Qual è il tuo nome, Crociato?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("Come pronunceresti il tuo nome, Crociato?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("Bulgarian", "Bulgare", "Búlgaro", "Bulgarisch", "Bulgaro", "български"))
+        {
+            Console.WriteLine("Какво е твоето име, Кръстоносец?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("Как бихте произнесли името си, Кръстоносец?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("Russian", "Russe", "Ruso", "Russisch", "Russo", "русский"))
+        {
+            Console.WriteLine("Как тебя зовут, Крестоносец?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("Как бы вы произнесли свое имя, Крестоносец?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("Polish", "Polonais", "Polaco", "Polnisch", "Polacco", "польский"))
+        {
+            Console.WriteLine("Jak masz na imię, Krzyżowiec?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("Jak byś wymówił swoje imię, Krzyżowiec?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("Czech", "Tchèque", "Checo", "Tschechisch", "Ceco", "чешский"))
+        {
+            Console.WriteLine("Jak se jmenuješ, Křižák?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("Jak bys vyslovil své jméno, Křižák?");
+            Name_pronounced = ReadInput();
+        }
+        else if (IsLanguage("Romanian", "Roumain", "Rumano", "Rumänisch", "Rumeno", "румынский"))
+        {
+            Console.WriteLine("Care este numele tău, Cruciatul?");
+            Name_spelt = ReadInput();
+            Console.WriteLine("Cum ai pronunța numele tău, Cruciatul?");
+            Name_pronounced = ReadInput();
+        }
+
+        if (IsLanguage("French", "Francais", "Francés", "Französisch", "Francese", "френски", "Французский", "Francuski"))
+        {
+            Console.WriteLine("Quel est votre race, Croisé?");
+            Console.WriteLine("Humains: Humain(1), Elfe(2), Nain(3), Ogre(4)");
+            Console.WriteLine("Bestiaux: Arachnien(5), Salamandrin(6), Homme Lézard(7), Raptorian(8)");
+            Console.WriteLine("Inhabituels: Atheztug(9), Draconien(10), Daedron(11)");
+        }
+        else if (IsLanguage("English", "Anglais", "Inglés", "Englisch", "Inglese", "английски"))
+        {
+            Console.WriteLine("What is your race, Crusader?");
+            Console.WriteLine("Humanoids: Human(1), Elf(2), Dwarf(3), Ogre(4)");
+            Console.WriteLine("Bestials: Arachnian(5), Salamandrine(6), Lizard Man(7), Raptorian(8)");
+            Console.WriteLine("Unusuals: Atheztug(9), Draconian(10), Daedron(11)");
+        }
+        else if (IsLanguage("Spanish", "Espagnol", "Español", "Spanisch", "Spagnolo", "испански"))
+        {
+            Console.WriteLine("¿Cuál es tu raza, Cruzado?");
+            Console.WriteLine("Humanoides: Humano(1), Elfo(2), Enano(3), Ogro(4)");
+            Console.WriteLine("Bestiales: Aracniano(5), Salamandrino(6), Hombre Lagarto(7), Raptorian(8)");
+            Console.WriteLine("Inusuales: Atheztug(9), Draconiano(10), Daedron(11)");
+        }
+        else if (IsLanguage("German", "Allemand", "Alemán", "Deutsch", "Tedesco", "немски"))
+        {
+            Console.WriteLine("Was ist deine Rasse, Kreuzritter?");
+            Console.WriteLine("Humanoide: Mensch(1), Elf(2), Zwerg(3), Oger(4)");
+            Console.WriteLine("Bestien: Arachnian(5), Salamandrin(6), Echsenmensch(7), Raptorian(8)");
+            Console.WriteLine("Ungewöhnliche: Atheztug(9), Draconian(10), Daedron(11)");
+        }
+        else if (IsLanguage("Italian", "Italien", "Italiano", "Italienisch", "итальянский"))
+        {
+            Console.WriteLine("Qual è la tua razza, Crociato?");
+            Console.WriteLine("Umanoidi: Umano(1), Elfo(2), Nano(3), Orco(4)");
+            Console.WriteLine("Bestiali: Aracniano(5), Salamandrino(6), Uomo Lucertola(7), Raptorian(8)");
+            Console.WriteLine("Inusuali: Atheztug(9), Draconiano(10), Daedron(11)");
+        }
+        else if (IsLanguage("Bulgarian", "Bulgare", "Búlgaro", "Bulgarisch", "Bulgaro", "български"))
+        {
+            Console.WriteLine("Каква е твоята раса, Кръстоносец?");
+            Console.WriteLine("Хуманоиди: Човек(1), Елф(2), Джудже(3), Огър(4)");
+            Console.WriteLine("Зверове: Арахниан(5), Саламандрин(6), Човек-ящер(7), Рапториан(8)");
+            Console.WriteLine("Необичайни: Atheztug(9), Draconian(10), Daedron(11)");
+        }
+        else if (IsLanguage("Russian", "Russe", "Ruso", "Russisch", "Russo", "русский"))
+        {
+            Console.WriteLine("Какая у тебя раса, Крестоносец?");
+            Console.WriteLine("Гуманоиды: Человек(1), Эльф(2), Дварф(3), Ог(4)");
+            Console.WriteLine("Звери: Арахниан(5), Саламандрин(6), Человек-ящер(7), Рапториан(8)");
+            Console.WriteLine("Необычные: Atheztug(9), Draconian(10), Daedron(11)");
+        }
+        else if (IsLanguage("Polish", "Polonais", "Polaco", "Polnisch", "Polacco", "польский"))
+        {
+            Console.WriteLine("Jaka jest twoja rasa, Krzyżowiec?");
+            Console.WriteLine("Humanoidy: Człowiek(1), Elf(2), Krasnolud(3), Ogr(4)");
+            Console.WriteLine("Bestie: Arachnianka(5), Salamandryna(6), Człowiek-jaszczurka(7), Raptorian(8)");
+            Console.WriteLine("Niezwykłe: Atheztug(9), Draconian(10), Daedron(11)");
+        }
+        else if (IsLanguage("Czech", "Tchèque", "Checo", "Tschechisch", "Ceco", "чешский"))
+        {
+            Console.WriteLine("Jaká je tvoje rasa, Křižák?");
+            Console.WriteLine("Humanoidi: Člověk(1), Elf(2), Dwarf(3), Ogre(4)");
+            Console.WriteLine("Bestie: Arachnianka(5), Salamandryna(6), Člověk-jaszczurka(7), Raptorian(8)");
+            Console.WriteLine("Neobvyklé: Atheztug(9), Draconian(10), Daedron(11)");
+        }
+        else if (IsLanguage("Romanian", "Roumain", "Rumano", "Rumänisch", "Rumeno", "румынский"))
+        {
+            Console.WriteLine("Care este rasa ta, Cruciatul?");
+            Console.WriteLine("Humanoizi: Om(1), Elf(2), Pitic(3), Ogr(4)");
+            Console.WriteLine("Bestii: Arachnian(5), Salamandrin(6), Om-Șopârlă(7), Raptorian(8)");
+            Console.WriteLine("Neobișnuite: Atheztug(9), Draconian(10), Daedron(11)");
+        }
+
+        Race = ReadInput();
+
+        if (IsLanguage("French", "Francais", "Francés", "Französisch", "Francese", "френски", "Французский", "Francuski"))
+        {
+            Console.WriteLine("Quelle classe es-tu, Croisé?");
+            Console.WriteLine("Guerriers: Guerrier(1), Ranger(2), Barbare(3), Moine(4)");
+            Console.WriteLine("Lanceurs de sorts: Mage(1), Sorcier(2), Soigneur(3), Warlock(4)");
+            Console.WriteLine("Voleurs: Rogue(1), Assassin(2), Barde(3), Voleur(4)");
+        }
+        else if (IsLanguage("English", "Anglais", "Inglés", "Englisch", "Inglese", "английски"))
+        {
+            Console.WriteLine("What class are you, Crusader?");
+            Console.WriteLine("Fighters: Warrior(1), Ranger(2), Barbarian(3), Monk(4)");
+            Console.WriteLine("Spellcasters: Mage(1), Sorcerer(2), Healer(3), Warlock(4)");
+            Console.WriteLine("Thieves: Rogue(1), Assassin(2), Bard(3), Thief(4)");
+        }
+        else if (IsLanguage("Spanish", "Espagnol", "Español", "Spanisch", "Spagnolo", "испански"))
+        {
+            Console.WriteLine("¿Qué clase eres, Cruzado?");
+            Console.WriteLine("Luchadores: Guerrero(1), Guardabosques(2), Bárbaro(3), Monje(4)");
+            Console.WriteLine("Hechiceros: Mago(1), Hechicero(2), Sanador(3), Brujo(4)");
+            Console.WriteLine("Ladrones: Pícaro(1), Asesino(2), Bardo(3), Ladrón(4)");
+        }
+        else if (IsLanguage("German", "Allemand", "Alemán", "Deutsch", "Tedesco", "немски"))
+        {
+            Console.WriteLine("Welche Klasse bist du, Kreuzritter?");
+            Console.WriteLine("Kämpfer: Krieger(1), Waldläufer(2), Barbar(3), Mönch(4)");
+            Console.WriteLine("Zauberer: Magier(1), Zauberer(2), Heiler(3), Hexenmeister(4)");
+            Console.WriteLine("Diebe: Schurke(1), Assassine(2), Barde(3), Dieb(4)");
+        }
+        else if (IsLanguage("Italian", "Italien", "Italiano", "Italienisch", "итальянский"))
+        {
+            Console.WriteLine("Quale classe sei, Crociato?");
+            Console.WriteLine("Combattenti: Guerriero(1), Ranger(2), Barbaro(3), Monaco(4)");
+            Console.WriteLine("Incantatori: Mago(1), Stregone(2), Guaritore(3), Warlock(4)");
+            Console.WriteLine("Ladri: Rogue(1), Assassino(2), Bardo(3), Ladro(4)");
+        }
+        else if (IsLanguage("Bulgarian", "Bulgare", "Búlgaro", "Bulgarisch", "Bulgaro", "български"))
+        {
+            Console.WriteLine("Какъв клас си, Кръстоносец?");
+            Console.WriteLine("Бойци: Воин(1), Рейнджър(2), Варварин(3), Монах(4)");
+            Console.WriteLine("Заклинатели: Магьосник(1), Чародей(2), Лекар(3), Warlock(4)");
+            Console.WriteLine("Крадци: Rogue(1), Assassin(2), Barde(3), Thief(4)");
+        }
+        else if (IsLanguage("Russian", "Russe", "Ruso", "Russisch", "Russo", "русский"))
+        {
+            Console.WriteLine("Какой ты класс, Крестоносец?");
+            Console.WriteLine("Бойцы: Воин(1), Рейнджер(2), Варварин(3), Монах(4)");
+            Console.WriteLine("Заклинатели: Маг(1), Чарodей(2), Целитель(3), Warlock(4)");
+            Console.WriteLine("Воры: Rogue(1), Assassin(2), Barde(3), Thief(4)");
+        }
+        else if (IsLanguage("Polish", "Polonais", "Polaco", "Polnisch", "Polacco", "польский"))
+        {
+            Console.WriteLine("Jaką klasą jesteś, Krzyżowiec?");
+            Console.WriteLine("Wojownicy: Wojownik(1), Strażnik(2), Barbarzyńca(3), Mnich(4)");
+            Console.WriteLine("Czarodzieje: Mag(1), Czarodziej(2), Uzdrowiciel(3), Warlock(4)");
+            Console.WriteLine("Złodzieje: Łobuz(1), Morderca(2), Bard(3), Złodziej(4)");
+        }
+        else if (IsLanguage("Czech", "Tchèque", "Checo", "Tschechisch", "Ceco", "чешский"))
+        {
+            Console.WriteLine("Jakou třídou jsi, Křižák?");
+            Console.WriteLine("Bojovníci: Voják(1), Strážce(2), Barbar(3), Mních(4)");
+            Console.WriteLine("Kouzelnici: Mag(1), Čaroděj(2), Léčitel(3), Warlock(4)");
+            Console.WriteLine("Zloději: Rogue(1), Assassin(2), Barde(3), Thief(4)");
+        }
+        else if (IsLanguage("Romanian", "Roumain", "Rumano", "Rumänisch", "Rumeno", "румынский"))
+        {
+            Console.WriteLine("Ce clasă ești, Cruciatul?");
+            Console.WriteLine("Luptători: Războinic(1), Ranger(2), Barbar(3), Călugăr(4)");
+            Console.WriteLine("Vrăjitori: Mag(1), Vrăjitor(2), Vindecător(3), Warlock(4)");
+            Console.WriteLine("Furți: Rogue(1), Assassin(2), Barde(3), Thief(4)");
+        }
+
+    }
+
+    private static string ReadInput()
+    {
+        return Console.ReadLine() ?? string.Empty;
+    }
+
+    private static bool IsLanguage(params string[] variants)
+    {
+        foreach (var variant in variants)
+        {
+            if (language == variant)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
