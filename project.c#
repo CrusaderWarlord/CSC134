@@ -70,10 +70,12 @@ class Program
         else if (IsLanguage("Czech", "Tchèque", "Checo", "Tschechisch", "Ceco", "чешский"))
         {
             Console.WriteLine("Ahoj, Křižák");
+            language = "čeština"
         }
         else if (IsLanguage("Romanian", "Roumain", "Rumano", "Rumänisch", "Rumeno", "румынский"))
         {
             Console.WriteLine("Salut, Cruciatul");
+            language = "Română"
         }
         else //chinese and arabic are such languages that are not supported
         {
@@ -144,7 +146,7 @@ class Program
             Console.WriteLine("Jak bys vyslovil své jméno, Křižák?");
             Name_pronounced = ReadInput();
         }
-        else if (IsLanguage("Romanian", "Roumain", "Rumano", "Rumänisch", "Rumeno", "румынский"))
+        else if (IsLanguage("Română"))
         {
             Console.WriteLine("Care este numele tău, Cruciatul?");
             Name_spelt = ReadInput();
@@ -215,7 +217,7 @@ class Program
             Console.WriteLine("Bestie: Arachnianka(5), Salamandryna(6), Člověk-jaszczurka(7), Raptorian(8)");
             Console.WriteLine("Neobvyklé: Atheztug(9), Draconian(10), Daedron(11)");
         }
-        else if (IsLanguage("Romanian", "Roumain", "Rumano", "Rumänisch", "Rumeno", "румынский"))
+        else if (IsLanguage("Română"))
         {
             Console.WriteLine("Care este rasa ta, Cruciatul?");
             Console.WriteLine("Humanoizi: Om(1), Elf(2), Pitic(3), Ogr(4)");
@@ -288,7 +290,7 @@ class Program
             Console.WriteLine("Kouzelnici: Mag(1), Čaroděj(2), Léčitel(3), Warlock(4)");
             Console.WriteLine("Zloději: Rogue(1), Assassin(2), Barde(3), Thief(4)");
         }
-        else if (IsLanguage("Romanian", "Roumain", "Rumano", "Rumänisch", "Rumeno", "румынский"))
+        else if (IsLanguage("Română"))
         {
             Console.WriteLine("Ce clasă ești, Cruciatul?");
             Console.WriteLine("Luptători: Războinic(1), Ranger(2), Barbar(3), Călugăr(4)");
